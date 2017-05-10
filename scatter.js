@@ -120,7 +120,6 @@ d3.csv("lele.csv", function(data) {
         .attr("y2", height);
 
     console.log(data.length);
-    // Add Text Labels
     objects.selectAll('.dotlabel')
         .data(data)
         .enter()
@@ -132,7 +131,7 @@ d3.csv("lele.csv", function(data) {
         .attr("transform", transform)
         .attr("font_family", "sans-serif")
         .attr("font-size", "13px")
-        .attr("fill", "darkgreen");
+        .attr("fill", function(d) {return 'color' in d ? d['color'] : 'darkgreen';});
 
     objects.selectAll(".dot")
         .data(data)
