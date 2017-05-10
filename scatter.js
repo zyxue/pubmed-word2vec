@@ -126,12 +126,13 @@ d3.csv("lele.csv", function(data) {
         .append("text")
         .classed('dotlabel', true)
         .text(function(d) {
-            return d['token'];
+            return d['color'] === 'red' ? d['token'] : '';
+            // return d['token'];
         })
         .attr("transform", transform)
         .attr("font_family", "sans-serif")
         .attr("font-size", "13px")
-        .attr("fill", function(d) {return 'color' in d ? d['color'] : 'darkgreen';});
+        .style("fill", function(d) {return 'color' in d ? d['color'] : 'darkgreen';});
 
     objects.selectAll(".dot")
         .data(data)
@@ -139,10 +140,12 @@ d3.csv("lele.csv", function(data) {
         .append("circle")
         .classed("dot", true)
         // .attr("r", function (d) { return 6 * Math.sqrt(d[rCat] / Math.PI); })
-        .attr("r", function (d) { return 3; })
+        .attr("r", function(d) {return d['color'] === 'red' ? 3 : 2;})
         .attr("transform", transform)
         // .style("fill", function(d) { return color(d[colorCat]); })
-        .style("fill", function(d) { return 1; })
+        .style("fill", function(d) {return 'color' in d ? d['color'] : 'darkgreen';})
+        .style("fill-opacity", function(d) {return d['color'] === 'red' ? 1 : 0.5;})
+        // .style("fill", function(d) { return 1; })
         .on("mouseover", tip.show)
         .on("mouseout", tip.hide);
 

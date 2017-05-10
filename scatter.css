@@ -17,9 +17,9 @@ rect {
   stroke-width: 2px;
 }
 
-.dot {
-  fill-opacity: .5;
-}
+/* .dot { */
+/*   fill-opacity: .5; */
+/* } */
 
 .d3-tip {
   line-height: 1;
