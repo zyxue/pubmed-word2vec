@@ -144,7 +144,7 @@ d3.csv("lele.csv", function(data) {
         .attr("transform", transform)
         // .style("fill", function(d) { return color(d[colorCat]); })
         .style("fill", function(d) {return 'color' in d ? d['color'] : 'darkgreen';})
-        .style("fill-opacity", function(d) {return d['color'] === 'red' ? 1 : 0.5;})
+        .style("fill-opacity", function(d) {return d['color'] === 'red' ? 1 : 0.2;})
         // .style("fill", function(d) { return 1; })
         .on("mouseover", tip.show)
         .on("mouseout", tip.hide);
